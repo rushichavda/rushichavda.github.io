@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/resume";
 
@@ -104,17 +104,6 @@ export function Hero() {
           </a>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
-        >
-          <a href="#about" className="group flex flex-col items-center gap-2 text-zinc-500">
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
-            <ArrowDown className="h-4 w-4 animate-bounce" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );
