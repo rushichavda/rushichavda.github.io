@@ -1,29 +1,79 @@
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
-import { skills } from "@/data/resume";
 import { Code, Boxes, Cloud, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  SiPython,
+  SiPostgresql,
+  SiR,
+  SiPytorch,
+  SiTensorflow,
+  SiDocker,
+  SiLinux,
+  SiGithub,
+  SiApachespark,
+  SiFastapi,
+  SiOpenai,
+  SiLangchain,
+} from "react-icons/si";
+import { TbBrain, TbEye, TbMessageCircle, TbShare3, TbNetwork } from "react-icons/tb";
+import { VscGraph } from "react-icons/vsc";
+import { BsCodeSquare } from "react-icons/bs";
+import type { IconType } from "react-icons";
 
-const skillCategories = [
+interface SkillItem {
+  name: string;
+  icon?: IconType;
+}
+
+const skillCategories: {
+  title: string;
+  icon: typeof Code;
+  items: SkillItem[];
+}[] = [
   {
     title: "Languages",
     icon: Code,
-    items: skills.languages,
+    items: [
+      { name: "Python", icon: SiPython },
+      { name: "SQL", icon: SiPostgresql },
+      { name: "R", icon: SiR },
+      { name: "MATLAB", icon: BsCodeSquare },
+    ],
   },
   {
     title: "Frameworks",
     icon: Boxes,
-    items: skills.frameworks,
+    items: [
+      { name: "PyTorch", icon: SiPytorch },
+      { name: "TensorFlow", icon: SiTensorflow },
+      { name: "LangChain", icon: SiLangchain },
+      { name: "FastAPI", icon: SiFastapi },
+      { name: "Gradio", icon: SiOpenai },
+    ],
   },
   {
     title: "MLOps & Tools",
     icon: Cloud,
-    items: skills.mlops,
+    items: [
+      { name: "Docker", icon: SiDocker },
+      { name: "Linux", icon: SiLinux },
+      { name: "GitHub", icon: SiGithub },
+      { name: "Azure AI", icon: VscGraph },
+      { name: "Spark", icon: SiApachespark },
+    ],
   },
   {
     title: "AI Domains",
     icon: Sparkles,
-    items: skills.domains,
+    items: [
+      { name: "LLMs", icon: TbBrain },
+      { name: "RAG Systems", icon: TbShare3 },
+      { name: "Computer Vision", icon: TbEye },
+      { name: "NLP", icon: TbMessageCircle },
+      { name: "Knowledge Graphs", icon: TbNetwork },
+      { name: "GNNs", icon: VscGraph },
+    ],
   },
 ];
 
@@ -58,9 +108,10 @@ export function Skills() {
                 {category.items.map((item, iIndex) => (
                   <span
                     key={iIndex}
-                    className="inline-flex items-center rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-sm text-zinc-400 transition-colors hover:border-zinc-600 hover:text-zinc-50"
+                    className="inline-flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-950 px-3 py-1.5 text-sm text-zinc-400 transition-colors hover:border-blue-500/40 hover:text-blue-400"
                   >
-                    {item}
+                    {item.icon && <item.icon className="h-4 w-4" />}
+                    {item.name}
                   </span>
                 ))}
               </div>

@@ -17,9 +17,9 @@ export function Contact() {
           projects, or exploring new opportunities. Feel free to reach out.
         </p>
 
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <a href={`mailto:${personalInfo.email}`} className="flex-1">
-            <Button variant="default" size="lg" className="w-full">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href={`mailto:${personalInfo.email}`}>
+            <Button variant="default" size="lg" className="w-full whitespace-nowrap">
               <Mail className="h-4 w-4" />
               Send an Email
               <ArrowUpRight className="h-4 w-4" />
@@ -30,9 +30,8 @@ export function Contact() {
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1"
           >
-            <Button variant="outline" size="lg" className="w-full">
+            <Button variant="outline" size="lg" className="w-full whitespace-nowrap">
               <Github className="h-4 w-4" />
               GitHub
             </Button>
@@ -42,9 +41,8 @@ export function Contact() {
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1"
           >
-            <Button variant="outline" size="lg" className="w-full">
+            <Button variant="outline" size="lg" className="w-full whitespace-nowrap">
               <Linkedin className="h-4 w-4" />
               LinkedIn
             </Button>
