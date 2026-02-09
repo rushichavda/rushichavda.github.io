@@ -2,14 +2,14 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/resume";
-import { ArrowUpRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Projects() {
   return (
     <Section id="projects">
       <SectionHeader
-        title="Projects"
+        title="projects.forEach()"
         subtitle="Selected work in AI and machine learning"
       />
 
@@ -25,14 +25,14 @@ export function Projects() {
             <Card className="group h-full flex flex-col">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="font-semibold text-zinc-50 group-hover:text-blue-500 transition-colors">
+                  <h3 className="font-semibold text-zinc-50 group-hover:text-emerald-400 transition-colors font-mono">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-zinc-500 mt-0.5">
-                    {project.subtitle}
+                  <p className="text-xs text-zinc-500 mt-0.5 font-mono">
+                    // {project.subtitle}
                   </p>
                 </div>
-                <ArrowUpRight className="h-4 w-4 text-zinc-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink className="h-4 w-4 text-zinc-600 opacity-0 group-hover:opacity-100 group-hover:text-emerald-400 transition-all" />
               </div>
 
               <p className="mt-3 text-sm text-zinc-400 flex-1">
@@ -43,7 +43,7 @@ export function Projects() {
                 {project.metrics.map((metric, mIndex) => (
                   <span
                     key={mIndex}
-                    className="text-xs text-blue-500 font-mono"
+                    className="text-xs text-emerald-400 font-mono"
                   >
                     {metric}
                     {mIndex < project.metrics.length - 1 && (
@@ -55,7 +55,7 @@ export function Projects() {
 
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {project.tags.map((tag, tIndex) => (
-                  <Badge key={tIndex} variant="default">
+                  <Badge key={tIndex} variant={tIndex % 3 === 0 ? "accent" : tIndex % 3 === 1 ? "cyan" : "violet"}>
                     {tag}
                   </Badge>
                 ))}

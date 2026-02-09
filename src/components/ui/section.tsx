@@ -31,13 +31,16 @@ interface SectionHeaderProps {
 export function SectionHeader({ title, subtitle }: SectionHeaderProps) {
   return (
     <div className="mb-12">
-      <h2 className="text-2xl font-bold tracking-tight text-zinc-50 md:text-3xl">
-        {title}
-      </h2>
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-emerald-400 font-mono text-sm">#</span>
+        <h2 className="text-2xl font-bold tracking-tight text-zinc-50 md:text-3xl font-mono">
+          {title}
+        </h2>
+      </div>
       {subtitle && (
-        <p className="mt-2 text-zinc-400">{subtitle}</p>
+        <p className="mt-2 text-zinc-400 pl-6">{subtitle}</p>
       )}
-      <div className="mt-4 h-px w-12 bg-blue-500" />
+      <div className="mt-4 h-px w-20 bg-gradient-to-r from-emerald-500 to-cyan-500" />
     </div>
   );
 }

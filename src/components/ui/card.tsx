@@ -11,24 +11,13 @@ export function Card({ children, className, hover = true, accent = false, ...pro
   return (
     <div
       className={cn(
-        "rounded-xl border p-6 transition-all duration-300",
-        hover && "hover:border-zinc-600",
+        "rounded-lg border p-6 transition-all duration-300 backdrop-blur-sm",
+        hover && "hover:border-emerald-500/30",
+        accent
+          ? "border-emerald-500/20 bg-emerald-500/5"
+          : "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900/80",
         className
       )}
-      style={{
-        borderColor: accent ? "rgba(59, 130, 246, 0.2)" : "#27272a",
-        backgroundColor: accent ? "rgba(59, 130, 246, 0.05)" : "#18181b",
-      }}
-      onMouseEnter={(e) => {
-        if (hover && !accent) {
-          e.currentTarget.style.backgroundColor = "#1f1f23";
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (hover && !accent) {
-          e.currentTarget.style.backgroundColor = "#18181b";
-        }
-      }}
       {...props}
     >
       {children}

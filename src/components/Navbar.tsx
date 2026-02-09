@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Publications", href: "#publications" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "about()", href: "#about" },
+  { label: "experience", href: "#experience" },
+  { label: "publications", href: "#publications" },
+  { label: "projects", href: "#projects" },
+  { label: "skills", href: "#skills" },
+  { label: "contact()", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -42,18 +42,19 @@ export function Navbar() {
           <div className="flex h-16 items-center justify-between">
             <a
               href="#"
-              className="font-mono text-sm font-medium text-zinc-50 hover:text-blue-500 transition-colors"
+              className="flex items-center gap-2 font-mono text-sm font-medium text-zinc-50 hover:text-emerald-400 transition-colors"
             >
-              RC
+              <Terminal className="h-4 w-4 text-emerald-400" />
+              <span>rushi.dev</span>
             </a>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-zinc-400 hover:text-zinc-50 transition-colors"
+                  className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors font-mono"
                 >
                   {item.label}
                 </a>
@@ -63,7 +64,7 @@ export function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-zinc-400 hover:text-zinc-50"
+              className="md:hidden p-2 text-zinc-400 hover:text-emerald-400"
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5" />
@@ -91,7 +92,7 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg text-zinc-400 hover:text-zinc-50 transition-colors"
+                  className="text-lg text-zinc-400 hover:text-emerald-400 transition-colors font-mono"
                 >
                   {item.label}
                 </a>
